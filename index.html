@@ -17,13 +17,23 @@
               <h1>Weather Dashboard</h1>
             </div>
         </header>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Search for a City:</h6>
+                    <input type="textCity" class="form-control mb-2 text" id="cityInput">
+                    <button type="submit" class="btn btn-primary block searchBtn" id="searchButton">
+                        Search
+                    </button>
+                </div>
 
-        <div class="col-md-4">
-            <h6>Search for a City:</h6>
-            <input type="text" class="form-control mb-2 text" id="cityInput">
-            <button type="submit" class="btn btn-primary block searchBtn" id="searchButton">
-                Search
-            </button>
+                <div class="col-md-8">
+                    <h4 class="cityText" id="cityText"></h3>
+                    <h4 class="currentDay" id="currentDay"></h5>
+                    <div id="currentWeather" class="currentWeather"></div>
+                </div>
+            </div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
