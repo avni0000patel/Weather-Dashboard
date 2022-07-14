@@ -1,4 +1,3 @@
-# Server-Side-APIs-Challenge-Weather-Dashboard
 # 06 Third-Party-APIs-Challenge-Work-Day-Scheduler
 In this project I have created a weather dashboard.
 ## GitHub Link
