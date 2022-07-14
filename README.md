@@ -1,5 +1,5 @@
 # 06 Third-Party-APIs-Challenge-Work-Day-Scheduler
-In this project I have created a weather dashboard.
+In this project I have created a weather dashboard. This is an important consideration when planning a trip. The dashboard allows you to see the current temperature, wind, humidity, and UV index for a city. The dashboard also allows you to see an extended 5 day forecast that shows temperature, wind, and humidity.
 ## GitHub Link
 https://github.com/avni0000patel
 ## GitHub Pages Link
