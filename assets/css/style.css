@@ -1,3 +1,18 @@
+header {
+    background-color: lightblue;
+    color: black;
+}
+ 
+h3 {
+    background-color: lightblue;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    color: black;
+}
+
 .block {
     width: 100%;
     text-align: center;
@@ -11,16 +26,20 @@
     border-radius: 5px;
     margin-bottom: 5px;
     font-size: 20px;
-    color: black;
+    color: darkblue;
 }
 
 .day {
-    background-color: black;
+    background-color: lightblue;
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
     font-size: 20px;
+    color: darkblue;
+  }
+
+  .searchHistoryButton {
     color: white;
   }

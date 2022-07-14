@@ -1,48 +1,29 @@
 // Variables
+// Open Weather API Key
 var APIKey = "bd5f7b7cf26bd43cbad8e84e5a8adccd";
 
+// Search for a city variables 
 var cityForm = document.querySelector("#cityForm");
 var cityName = document.querySelector("#cityname");
 
+// Search history variables
 var historyEl = document.querySelector("#history");
 var trash = document.querySelector("#trash");
 var searchHistory = document.querySelector("#searchHistory");
 var searchedCitiesArray = []
 
+// Current weather variables
 var weather = document.querySelector("#weather");
 var currentWeatherDescription = document.querySelector('#currentWeatherDescription');
 var currentWeather = document.querySelector('#currentWeather');
 
+// Five day forecast variables
 var forecast = document.querySelector("#forecast");
 var fiveDayForecast = document.querySelector("#fiveDayForecast");
 
-
-function historySection(event) {
-    event.preventDefault();
-
-    var cityname = cityName.value;
-    console.log(cityname);
-
-    if (cityname) {
-        searchedCitiesArray.push(cityname);
-        console.log(searchedCitiesArray);
-        localStorage.setItem("weatherSearch", JSON.stringify(searchedCitiesArray));
-        var searchHistoryButton = document.createElement("button");
-        searchHistoryButton.classList.add("btn");
-        searchHistoryButton.classList.add("btn-secondary");
-        searchHistoryButton.classList.add("block");
-        searchHistoryButton.classList.add("mt-2");
-        searchHistoryButton.setAttribute("cityNameAttr", cityname);
-        searchHistoryButton.innerHTML = cityname;
-        searchHistory.appendChild(searchHistoryButton);
-        historyEl.removeAttribute("style");
-        weatherSection(cityname);
-        cityName.value = "";
-    }
-}
-
 // Display the current weather on the page
 function weatherSection(cityname) {
+    console.log(cityname);
     var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=imperial" + "&appid=" + APIKey;
     fetch(apiURL)
 
@@ -77,43 +58,45 @@ function weatherSection(cityname) {
         .then(function (response) {
             console.log(response);
             console.log(response.current);
-            var weather = `
-                <p>Temp: ${response.current.temp} °F</p>
-                <p>Wind: ${response.current.wind_speed} MPH</p>
-                <p>Humidity: ${response.current.humidity} %</p>
-                <p class="uvIndex" id="uvIndex">UV Index: ${response.current.uvi}</p>
-                `;
+            
+            var temp = document.createElement("div");
+            console.log(response.current.temp);
+            temp.innerHTML = "<p>Temp: " + response.current.temp + " °F</p>";
+            currentWeather.appendChild(temp);
 
-            console.log(weather);
+            var wind = document.createElement("div");
+            console.log(response.current.wind_speed);
+            wind.innerHTML = "<p>Wind: " + response.current.wind_speed + " MPH</p>";
+            currentWeather.appendChild(wind);
 
+            var humidity = document.createElement("div");
+            console.log(response.current.humidity);
+            humidity.innerHTML = "<p>Humidity: " + response.current.humidity + " %</p>";
+            currentWeather.appendChild(humidity);
+
+            var uvIndex = document.createElement("div");
+            console.log(response.current.uvi);
+            uvIndex.innerHTML = "<p>UV Index: " + response.current.uvi + "</p>";
+            currentWeather.appendChild(uvIndex);
+
+            // The UV index is given a color that indicates whether the conditions are favorable, moderate, or severe
             var uvi = response.current.uvi;
             console.log(uvi);
 
-            // The UV index is given a color that indicates whether the conditions are favorable, moderate, or severe
             if (uvi >= 0) {
                 console.log("green");
-                currentWeather.style.backgroundColor = "green";
-            }
-            if (uvi >= 2) {
-                console.log("yellow");
-                currentWeather.style.backgroundColor = "yellow";
+                uvIndex.style.color = "green";
 
             }
-            if (uvi >= 6) {
-                console.log("orange");
-                currentWeather.style.backgroundColor = "orange";
+            if (uvi >= 3) {
+                console.log("yellow");
+                uvIndex.style.color = "yellow";
+
             }
             if (uvi >= 8) {
                 console.log("red");
-                currentWeather.style.backgroundColor = "red";
+                uvIndex.style.color = "red";
             }
-            if (uvi >= 11) {
-                console.log("purple");
-                currentWeather.style.backgroundColor = "purple";
-            }
-
-            // Append the results to the DOM
-            $('#currentWeather').append(weather);
 
             extendedWeatherSection(response);
         });
@@ -141,14 +124,13 @@ function extendedWeatherSection(weather) {
     var fiveDayForecastArray = [day1, day2, day3, day4, day5];
     console.log(fiveDayForecastArray);
 
-
-    // Create day cards for extended forecast
+    // Shows the weather forecast for the next 5 days 
     for (let i = 0; i < fiveDayForecastArray.length; i++) {
-
         var date = moment.unix(fiveDayForecastArray[i].dt).add(1, 'days').format('l');
         console.log(date);
 
         var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + fiveDayForecastArray[i].weather[0].icon + ".png' />"
+
         var dayForecast = document.createElement("div");
         dayForecast.classList.add("day");
         dayForecast.innerHTML =
@@ -162,8 +144,34 @@ function extendedWeatherSection(weather) {
     }
 }
 
-// Load any past city weather searches
-function loadHistory() {
+// Adds cityname search to search history
+function historySection(event) {
+    event.preventDefault();
+
+    var cityname = cityName.value;
+    console.log(cityname);
+
+    if (cityname) {
+        searchedCitiesArray.push(cityname);
+        console.log(searchedCitiesArray);
+        localStorage.setItem("weatherSearch", JSON.stringify(searchedCitiesArray));
+        var searchHistoryButton = document.createElement("button");
+        searchHistoryButton.classList.add("btn");
+        searchHistoryButton.classList.add("btn-secondary");
+        searchHistoryButton.classList.add("block");
+        searchHistoryButton.classList.add("mt-2");
+        searchHistoryButton.classList.add("mb-2");
+        searchHistoryButton.setAttribute("cityNameAttr", cityname);
+        searchHistoryButton.innerHTML = cityname;
+        searchHistory.appendChild(searchHistoryButton);
+        historyEl.removeAttribute("style");
+        weatherSection(cityname);
+        cityName.value = "";
+    }
+}
+
+// Shows past history searches
+function pastHistory() {
     searchArray = JSON.parse(localStorage.getItem("weatherSearch"));
 
     if (searchArray) {
@@ -174,19 +182,23 @@ function loadHistory() {
             searchHistoryButton.classList.add("btn-secondary");
             searchHistoryButton.classList.add("block");
             searchHistoryButton.classList.add("mt-2");
+            searchHistoryButton.classList.add("mb-2");
+            searchHistoryButton.classList.add("searchHistoryButton");
             searchHistoryButton.setAttribute("cityNameAttr", searchArray[i])
             searchHistoryButton.innerHTML = searchArray[i];
             searchHistory.appendChild(searchHistoryButton);
             historyEl.removeAttribute("style");
         }
-
     }
 }
 
-loadHistory();
+pastHistory();
 
-// Search weather using search history buttons
+// Shows the weather conditions for that city when the city is clicked in the search history
 function searchWeatherHistory(event) {
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.getAttribute("cityNameAttr"));
     var cityname = event.target.getAttribute("cityNameAttr");
     if (cityname) {
         weatherSection(cityname);
@@ -204,7 +216,7 @@ function removeSection() {
     currentWeather.style.backgroundColor = "white";
 }
 
-// Event listeners
+// Add event listeners
 cityForm.addEventListener("submit", historySection);
 searchHistory.addEventListener("click", searchWeatherHistory);
 trash.addEventListener("click", removeSection);

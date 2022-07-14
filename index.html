@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Add css files -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Add style.css -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
@@ -20,12 +22,13 @@
     </header>
 
 <body>
-
     <div class="container">
         <div class="row">
+            <!-- 4/12 of page on medium size screen -->
             <div class="col-12 col-md-4">
 
-                <h3>Search for a City </h6>
+                <!-- Search section -->
+                <h3>Search for a City </h3>
                 <form class="cityForm" id="cityForm">
                     <input type="text" name="cityname" class="form-control mb-2 cityname" id="cityname"/>
                     <button type="submit" class="btn btn-primary block mb-2 searchBtn" id="searchButton">
@@ -33,6 +36,7 @@
                     </button>
                 </form>
 
+                <!-- History section -->
                 <div class="history" id="history" style="display: none">
                     <h3>Search History <i id="trash" class="fa fa-trash"></i></h3>
                     <div class="searchHistory" id="searchHistory">
@@ -41,15 +45,18 @@
 
             </div>
 
+            <!-- 8/12 of page on medium size screen -->
             <div class="col-12 col-md-8">
                 
+                <!-- Current weather section -->
                 <div class="hidden weather" id="weather">
-                    <h2 class="currentWeatherDescription" id="currentWeatherDescription"></h2>
+                    <h3 class="currentWeatherDescription" id="currentWeatherDescription"></h3>
                     <div class="currentWeather" id="currentWeather"></div>
                 </div>
 
+                <!-- Weather forecast section -->
                 <div class="hidden forecast" id="forecast">
-                    <h2 class="fiveDayForecastDescription" id="fiveDayForecastDescription"></h2>
+                    <h3 class="fiveDayForecastDescription" id="fiveDayForecastDescription"></h3>
                     <div class="fiveDayForecast" id="fiveDayForecast"></div>
                 </div>
 
@@ -63,6 +70,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <!-- Add script.js -->
     <script src="./assets/js/script.js"></script>
 </body>
 
