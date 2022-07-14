@@ -35,7 +35,7 @@ function weatherSection(cityname) {
             var latitude = response.coord.lat;
             var longitude = response.coord.lon;
             var city = response.name;
-            var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png' />"
+            var weatherIconLink = "<img src='https://openweathermap.org/img/wn/" + response.weather[0].icon + ".png' />"
 
             // Moment.js is used to display the current day
             var today = moment();
@@ -129,7 +129,7 @@ function extendedWeatherSection(weather) {
         var date = moment.unix(fiveDayForecastArray[i].dt).add(1, 'days').format('l');
         console.log(date);
 
-        var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + fiveDayForecastArray[i].weather[0].icon + ".png' />"
+        var weatherIconLink = "<img src='https://openweathermap.org/img/wn/" + fiveDayForecastArray[i].weather[0].icon + ".png' />"
 
         var dayForecast = document.createElement("div");
         dayForecast.classList.add("day");
