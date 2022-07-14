@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <title>Weather Dashboard</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <body>
-        <header>
-            <div class="container text-center">
-              <h1>Weather Dashboard</h1>
-            </div>
-        </header>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>Search for a City:</h6>
-                    <input type="textCity" class="form-control mb-2 text" id="cityInput">
-                    <button type="submit" class="btn btn-primary block searchBtn" id="searchButton">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+    <header>
+        <div class="container text-center">
+            <h1>Weather Dashboard</h1>
+        </div>
+    </header>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+
+                <h3>Search for a City </h6>
+                <form class="cityForm" id="cityForm">
+                    <input type="text" name="cityname" class="form-control mb-2 cityname" id="cityname"/>
+                    <button type="submit" class="btn btn-primary block mb-2 searchBtn" id="searchButton">
                         Search
                     </button>
+                </form>
+
+                <div class="history" id="history" style="display: none">
+                    <h3>Search History <i id="trash" class="fa fa-trash"></i></h3>
+                    <div class="searchHistory" id="searchHistory">
+                    </div>                  
                 </div>
 
-                <div class="col-md-8">
-                    <h4 class="cityText" id="cityText"></h3>
-                    <h4 class="currentDay" id="currentDay"></h5>
-                    <div id="currentWeather" class="currentWeather"></div>
+            </div>
+
+            <div class="col-12 col-md-8">
+                
+                <div class="hidden weather" id="weather">
+                    <h2 class="currentWeatherDescription" id="currentWeatherDescription"></h2>
+                    <div class="currentWeather" id="currentWeather"></div>
                 </div>
+
+                <div class="hidden forecast" id="forecast">
+                    <h2 class="fiveDayForecastDescription" id="fiveDayForecastDescription"></h2>
+                    <div class="fiveDayForecast" id="fiveDayForecast"></div>
+                </div>
+
             </div>
         </div>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-        <script src="./assets/js/script.js"></script>
-    </body>
+    <!-- Add script file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
 
 </html>

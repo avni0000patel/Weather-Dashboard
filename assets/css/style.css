@@ -2,3 +2,25 @@
     width: 100%;
     text-align: center;
 }
+
+.currentWeather {
+    background-color: white;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: black;
+}
+
+.day {
+    background-color: black;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: white;
+  }
