@@ -13,6 +13,10 @@ h3 {
     color: black;
 }
 
+h3:empty {
+    display: none;
+}
+
 .block {
     width: 100%;
     text-align: center;
