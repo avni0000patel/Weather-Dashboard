@@ -1,3 +1,4 @@
+// Variables
 var APIKey = "bd5f7b7cf26bd43cbad8e84e5a8adccd";
 
 var cityForm = document.querySelector("#cityForm");
@@ -40,6 +41,7 @@ function historySection(event) {
     }
 }
 
+// Display the current weather on the page
 function weatherSection(cityname) {
     var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=imperial" + "&appid=" + APIKey;
     fetch(apiURL)
@@ -82,6 +84,8 @@ function weatherSection(cityname) {
                 <p class="uvIndex" id="uvIndex">UV Index: ${response.current.uvi}</p>
                 `;
 
+            console.log(weather);
+
             var uvi = response.current.uvi;
             console.log(uvi);
 
@@ -111,13 +115,11 @@ function weatherSection(cityname) {
             // Append the results to the DOM
             $('#currentWeather').append(weather);
 
-            console.log(weather);
-
             extendedWeatherSection(response);
         });
 };
 
-// Display the weather on page
+// Display the extended weather on the page
 function extendedWeatherSection(weather) {
     fiveDayForecastDescription.innerHTML = "5-Day Forecast"
 
@@ -147,16 +149,16 @@ function extendedWeatherSection(weather) {
         console.log(date);
 
         var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + fiveDayForecastArray[i].weather[0].icon + ".png' />"
-        var dayEl = document.createElement("div");
-        dayEl.classList.add("day");
-        dayEl.innerHTML =
+        var dayForecast = document.createElement("div");
+        dayForecast.classList.add("day");
+        dayForecast.innerHTML =
             "<p>" + date + "</p>" +
             "<p>" + weatherIconLink + "</p>" +
             "<p>Temp: " + fiveDayForecastArray[i].temp.day + " °F</p>" +
             "<p>Wind: " + fiveDayForecastArray[i].wind_speed + " MPH</p>" +
             "<p>Humidity: " + fiveDayForecastArray[i].humidity + " %</p>";
 
-        fiveDayForecast.appendChild(dayEl);
+        fiveDayForecast.appendChild(dayForecast);
     }
 }
 
