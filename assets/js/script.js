@@ -24,7 +24,7 @@ var fiveDayForecast = document.querySelector("#fiveDayForecast");
 // Display the current weather on the page
 function weatherSection(cityname) {
     console.log(cityname);
-    var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=imperial" + "&appid=" + APIKey;
+    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=imperial" + "&appid=" + APIKey;
     fetch(apiURL)
 
         .then(function (response) {
