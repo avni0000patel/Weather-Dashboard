@@ -5,3 +5,4 @@ https://github.com/avni0000patel
 ## GitHub Pages Link
 https://avni0000patel.github.io/Server-Side-APIs-Challenge-Weather-Dashboard/
 ## Screenshot
+![_Users_avnipatel_Desktop_Bootcamp_Challenge06_Server-Side-APIs-Challenge-Weather-Dashboard_index html](https://user-images.githubusercontent.com/104175474/179132888-4f53b0a2-423e-48cc-a8fb-96743a6782a6.png)
