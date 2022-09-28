@@ -1,5 +1,5 @@
 # Weather Dashboard
-In this project I have created a weather dashboard. Weather is an important consideration when planning a trip. The dashboard allows you to see the current temperature, wind, humidity, and UV index for a city. The dashboard also allows you to see an extended 5 day forecast that shows temperature, wind, and humidity for a city.
+In this project I have created a weather dashboard that uses the OpenWeather API to show the forecast for different cities. Weather is an important consideration when planning a trip. The dashboard allows you to see the current temperature, wind, humidity, and UV index for a city. The dashboard also allows you to see an extended 5 day forecast that shows temperature, wind, and humidity for a city.
 ## GitHub Link
 https://github.com/avni0000patel
 ## GitHub Pages Link
